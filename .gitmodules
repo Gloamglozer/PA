@@ -1,3 +1,6 @@
 [submodule ".vscode"]
 	path = .vscode
 	url = https://github.com/Gloamglozer/.vscode.git
+[submodule "smithplot"]
+	path = smithplot
+	url = https://github.com/vMeijin/pySmithPlot.git
