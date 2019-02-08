@@ -27,7 +27,7 @@ fig = plt.figure()
 # We can say that:
 # $ \frac{P_{RF}}{P_{RF,max}} R_{opt} = R_{L,lo} = 10^{-0.2} 80 = 50.476 \Omega $ 
 # Similarly:
-# $ R_{L,hi} = \frac1{R_{L,lo}} 
+# $ R_{L,hi} = \frac1{R_{L,lo}} $
 
 #%% [markdown]
 ## Constructing the plot
@@ -37,7 +37,7 @@ fig = plt.figure()
 # intercept each other). 
 # This can easily be done and then plotted once you have the two points where these lines intersect.
 # 
-# I found that this point has the reactance $ X = \sqrt{R_{opt}^2-R_{L,lo}}
+# I found that this point has the reactance $ X = \sqrt{R_{opt}^2-R_{L,lo}}$
 
 #%%
 R_L_opt = 80
