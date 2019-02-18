@@ -1,0 +1,17 @@
+SYSTEM_CUSTOM_CIRCUIT_SYMBOLS={%DESIGN_KIT_SYSTEM_CUSTOM_CIRCUIT_SYMBOLS};{$HPEESOF_DIR}\custom\{%PROJECT1}\symbols
+SYSTEM_CUSTOM_CIRCUIT_DESIGNS={%DESIGN_KIT_SYSTEM_CUSTOM_CIRCUIT_DESIGNS};{$HPEESOF_DIR}\custom\{%PROJECT1}\designs
+VIA_CONFIG_PATH={%DESIGN_KIT_VIA_CONFIG_PATH};.:{%PROJECT_SEARCH_PATH}:{$HOME}\hpeesof\de\defaults:{$HPEESOF_DIR}\de\defaults:{%DESIGN_KIT_VIA_CONFIG_PATH}:{%USER_VIA_CONFIG_PATH}
+LAST_LIBRARY_SELECTED=ClassF_lib
+SCHEM_FILE_OPEN_HISTORY_1=ClassF_lib:classf_match:schematic
+SCHEM_FILE_OPEN_HISTORY_2=ClassF_lib:readme:schematic
+SCHEM_FILE_OPEN_HISTORY_3=ClassF_lib:dciv:schematic
+SCHEM_FILE_OPEN_HISTORY_4=ClassF_lib:classf_parasitics:schematic
+SCHEM_FILE_OPEN_HISTORY_5=PA_Basics_lib:DA_SmithChartMatch_classF_match:schematic
+SYMBOL_FILE_OPEN_HISTORY_1=ClassF_lib:dciv:symbol
+LAYOUT_FILE_OPEN_HISTORY_1=PA_Basics_lib:cell_5:layout
+SYMBOL_FILE_OPEN_HISTORY_2=ClassF_lib:squarewave:symbol
+SYMBOL_FILE_OPEN_HISTORY_3=ClassF_lib:classf_parasitics:symbol
+SYMBOL_FILE_OPEN_HISTORY_4=ClassF_lib:classf_match:symbol
+SYMBOL_FILE_OPEN_HISTORY_5=ClassF_lib:classf:symbol
+DESIGN_KIT_DATA_FILES=C:\Modelithics\Library\MDLX_Qorvo_GaN_Library_dk\circuit\data;C:\Modelithics\Library\MDLX_Qorvo_GaN_Library_dk\circuit\models
+DESIGN_KIT_VIA_CONFIG_PATH=C:\Modelithics\Library\MDLX_Qorvo_GaN_Library_dk\de\defaults;C:\Modelithics\Library\MDLX_Qorvo_GaN_Library_dk\de\defaults
