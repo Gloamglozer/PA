@@ -1,4 +1,4 @@
-﻿<ADSWorkspace Revision="47" Version="100">
+﻿<ADSWorkspace Revision="49" Version="100">
     <Workspace Name="">
         <Library Name="ads_standard_layers" />
         <Library Name="adstechlib" />
@@ -42,44 +42,21 @@
         <Cell Name="ClassF_lib:squarewave" />
         <Cell Name="ClassF_lib:readme" />
         <Cell Name="ClassF_lib:classf_match" />
-        <Library Name="1xEV" />
-        <Library Name="3GPPFDD" />
-        <Library Name="3GPPFDD_10_99" />
-        <Library Name="Antennas_and_Propagation" />
-        <Library Name="CDMA" />
-        <Library Name="cdma2000" />
-        <Library Name="Circuit_Cosimulation" />
-        <Library Name="CMMB" />
-        <Library Name="Controllers" />
-        <Library Name="DTMB" />
-        <Library Name="DTV" />
-        <Library Name="EDGE" />
-        <Library Name="GSM" />
-        <Library Name="HDL_Blocks" />
-        <Library Name="HSDPA" />
-        <Library Name="HSUPA" />
-        <Library Name="Instruments" />
-        <Library Name="Interactive_Controls_and_Displays" />
-        <Library Name="LTE" />
-        <Library Name="Numeric" />
-        <Library Name="Obsolete" />
-        <Library Name="Signal_Converters" />
-        <Library Name="Simulation_Sequencing" />
-        <Library Name="Sinks" />
-        <Library Name="SystemVue_Cosimulation" />
-        <Library Name="TDSCDMA" />
-        <Library Name="Timed" />
-        <Library Name="UMB" />
-        <Library Name="UWB" />
-        <Library Name="WLAN" />
-        <Library Name="WLAN_11n" />
-        <Library Name="WMAN" />
-        <Library Name="WMAN_16e" />
         <Cell Name="ClassF_lib:DA_SmithChartMatch1_classf_match" />
         <Dataset Name="classf_match.ds" />
         <Data_Display Name="classf.dds" />
         <Data_Display Name="dciv.dds" />
         <Data_Display Name="power_sweep_classf.dds" />
         <Data_Display Name="fourier_analysis.dds" />
+        <Library Name="MDLXQorvoGaN_tech" />
+        <Library Name="MDLXQorvoGaN" />
+        <Cell Name="ClassF_lib:stabilization" />
+        <Data_Display Name="stabilization.dds" />
+        <Dataset Name="dciv.ds" />
+        <Dataset Name="stabilization.ds" />
+        <Preferences Name="ClassF_lib_lay.prf" />
+        <Cell Name="ClassF_lib:bias" />
+        <Dataset Name="bias.ds" />
+        <Cell Name="ClassF_lib:stabilization_only_rs" />
     </Workspace>
 </ADSWorkspace>
