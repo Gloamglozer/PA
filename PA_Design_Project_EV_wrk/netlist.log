@@ -1,0 +1,63 @@
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="ClassF_lib:stabilization:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+define HMT_QOR_QPD1022_001_int_MDLXQorvoGaN ( N__17  N__21  N__22  Vdrain_int  Vgate_int  Vsrc_int  N__15 ) 
+parameters  VDSQ=28  self_heating=0.1  Temperature=25 
+Short:I_gate_int  N__16 N__19 Mode=0 SaveCurrent=yes 
+#uselib "MDLXQorvoGaN" , "Qorvo_build_lib_HMT_QOR_QPD1022_001_core_schematic"
+"Qorvo_build_lib_HMT_QOR_QPD1022_001_core_schematic":X12  N__19 N__4 N__12 Vdrain_int Vgate_int Vsrc_int N__15 VDSQ=VDSQ V self_heat=self_heating Temperature=Temperature 
+#uselib "MDLXQorvoGaN" , "Qorvo_build_lib_HMT_QOR_QPD1022_001_parasitic_core_schematic"
+"Qorvo_build_lib_HMT_QOR_QPD1022_001_parasitic_core_schematic":X13  N__17 N__16 N__21 N__4 N__22 N__12 VDSQ=VDSQ V 
+end HMT_QOR_QPD1022_001_int_MDLXQorvoGaN
+define HMT_QOR_QPD1022_001_MDLXQorvoGaN ( P1  P2  P3 ) 
+parameters  VDSQ=32  self_heat_factor=0.1  Temperature=25 
+HMT_QOR_QPD1022_001_int_MDLXQorvoGaN:X1  P2 P1 P3 Vdrain_int Vgate_int Vsrc_int N__4 VDSQ=VDSQ self_heating=self_heat_factor Temperature=Temperature 
+Short:I_drain_int  N__8 0 Mode=0 SaveCurrent=yes 
+R:R1  N__4 N__8 R=1 Ohm Noise=yes 
+end HMT_QOR_QPD1022_001_MDLXQorvoGaN
+HMT_QOR_QPD1022_001_MDLXQorvoGaN:X1  N__12 N__8 0 VDSQ=32 self_heat_factor=0.1 Temperature=25 
+V_Source:VGS  N__3 0 Type="V_DC" Vdc=-2.25 V SaveCurrent=1 
+V_Source:VDS  N__0 0 Type="V_DC" Vdc=32 V SaveCurrent=1 
+Port:TermG1  N__2 0 Num=1 Z=50 Ohm Noise=yes 
+Short:DC_Feed1  N__3 N__4 Mode=-1 
+Short:DC_Block1  N__2 N__4 Mode=1 
+Short:DC_Block2  N__12 N__10 Mode=1 
+Port:TermG2  N__10 0 Num=2 Z=50 Ohm Noise=yes 
+aele StabFact1=stab_fact(S);
+aele StabMeas1=stab_meas(S);
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=0.01 GHz Stop=10.0 GHz Step=0.01 GHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+aele S_StabCircle1=s_stab_circle(S,51);
+aele L_StabCircle1=l_stab_circle(S,51);
+R:R_source_shunt  N__4 N__6 R=22.1895 Ohm tune{ 19 Ohm to 1000 Ohm by 1 Ohm } opt{ 11.0882 Ohm to 33.2646 Ohm } Noise=yes 
+aele MaxGain1=max_gain(S);
+
+Optim:"Optim1" OptimType="hpVMO" ErrorForm="L2" MaxIters=50 P=2 DesiredError=0.0 StatusLevel=4 FinalAnalysis="None" NormalizeGoals=yes SetBestValues=yes SaveSolns=yes SaveGoals=yes SaveOptimVars=no UpdateDataset=yes SaveNominal=no SaveAllIterations=no UseAllOptVars=yes UseAllGoals=yes SaveCurrentEF=no InitialTemp=0.1 NumShootsPerIter=20 EnableCockpit=yes SaveAllTrials=no 
+
+OptimGoal:Stable_gt_0 Expr="StabMeas1" SimInstanceName="SP1" Weight=100 \
+IndepVar[1]="freq" \
+SpecLimitLine[1]="Stable_gt_0_limit1" 
+SpecLimitLine:"Stable_gt_0_limit1" Type="GreaterThan" Min=0 Weight=100 
+OptimGoal:Stable_gt_1 Expr="StabFact1" SimInstanceName="SP1" Weight=100 \
+IndepVar[1]="freq" \
+SpecLimitLine[1]="Stable_gt_1_limit1" 
+SpecLimitLine:"Stable_gt_1_limit1" Type="GreaterThan" Min=1 Weight=100 
+OptimGoal:Best_Gain Expr="MaxGain1" SimInstanceName="SP1" Weight=1 \
+IndepVar[1]="freq" \
+SpecLimitLine[1]="Best_Gain_limit1" 
+SpecLimitLine:"Best_Gain_limit1" Type="GreaterThan" Min=27 Weight=10 \
+IndepVar[1]="freq" IndepMin[1]=3.05 GHz IndepMax[1]=3.15 GHz 
+L:L_drain  N__0 N__12 L=200 nH tune{ 0.5 nH to 100 nH by 0.1 nH } opt{ unconst } Noise=yes  
+C:C_source_shunt  0 N__6 C=458.634 pF tune{ 1 pF to 150 pF by 10 pF } opt{ unconst } 
+R:R_source_series  N__4 N__8 R=1.15519e-009 Ohm tune{ 0.5 Ohm to 50 Ohm by 0.1 Ohm } opt{ unconst } Noise=yes 
