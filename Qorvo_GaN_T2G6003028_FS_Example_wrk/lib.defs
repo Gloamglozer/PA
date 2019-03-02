@@ -1,0 +1,6 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+INCLUDE C:/Modelithics/Library/MDLX_Qorvo_GaN_Library_dk/lib.defs
+DEFINE Qorvo_GaN_T2G6003028_FS_Example_lib Qorvo_GaN_T2G6003028_FS_Example_lib
+ASSIGN Qorvo_GaN_T2G6003028_FS_Example_lib libMode shared
+INCLUDE C:/Modelithics/Library/MDLX_CLR_dk_Library/lib.defs

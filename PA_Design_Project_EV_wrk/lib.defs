@@ -1,0 +1,6 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+DEFINE ClassF_lib ClassF_lib
+ASSIGN ClassF_lib libMode shared
+INCLUDE C:/Modelithics/Library/MDLX_Qorvo_GaN_Library_dk/lib.defs
+INCLUDE C:/Modelithics/Library/MDLX_Sub_dk_Library/lib.defs
+INCLUDE C:/Modelithics/Library/MDLX_CLR_dk_Library/lib.defs

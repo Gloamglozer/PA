@@ -1,0 +1,152 @@
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Qorvo_GaN_T2G6003028_FS_Example_lib:3-Transistor_HB1Tone_LoadPull:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+define HMT_QOR_T2G6003028_FS_001_int_MDLXQorvoGaN ( N__17  N__15  N__16  Vdrain_int  Vgate_int  Vsrc_int  N__10 ) 
+parameters  self_heat_factor=1  Temperature=25 
+#uselib "MDLXQorvoGaN" , "Qorvo_build_lib_HMT_QOR_T2G6003028_FS_001_core_schematic"
+"Qorvo_build_lib_HMT_QOR_T2G6003028_FS_001_core_schematic":X26  N__0 N__13 N__18 Vdrain_int Vgate_int Vsrc_int N__10 VDSQ=28 V self_heat=self_heat_factor Temperature=Temperature 
+#uselib "MDLXQorvoGaN" , "Qorvo_build_lib_HMT_QOR_T2G6003028_FS_001_parasitics_schematic"
+"Qorvo_build_lib_HMT_QOR_T2G6003028_FS_001_parasitics_schematic":R1  N__15 N__17 N__5 N__18 N__13 N__16 
+Short:I_gate_int  N__5 N__0 Mode=0 SaveCurrent=yes 
+end HMT_QOR_T2G6003028_FS_001_int_MDLXQorvoGaN
+define Load_Tuner_Circular_or_Rect_wHarm_Zs_1 ( N__1  N__3 ) 
+parameters  Z0=50+j*0  Fund_Freq=1 GHz  Z_Load_Baseband=50+j*0  Z_Load_Center_Fund=50+j*0  Z_Load_Center_2nd=500+j*0  Z_Load_Center_3rd=500+j*0  Z_Load_4th=500+j*0  Z_Load_5th=500+j*0  Sweep_Rectangular_Region=no  Specify_Load_Center_S=yes  Swept_Harmonic_Num=1  S_Load_Baseband=0*exp(j*pi)  S_Load_Center_Fund=0*exp(j*pi)  S_Load_Center_2nd=0.95*exp(j*pi)  S_Load_Center_3rd=0.95*exp(j*pi)  S_Load_4th=0.95*exp(j*pi)  S_Load_5th=0.95*exp(j*pi)  S_Load_Radius=0.5  Num_Points=100  S_imag_min=-0.2  S_imag_max=0.2  S_imag_num_pts=10  S_real_min=-0.2  S_real_max=0.2  S_real_num_pts=10  Simulation_1="HB1" 
+S_Port:S1  N__1 N__3 S[1,1]=LoadTuner Z[1]=Z0 
+ParamSweep:SweepOuter SimInstanceName[1]="SweepInner" StatusLevel=2 SweepVar="imag_indexs11" SweepPlan="SweepOuter_stim" 
+
+SweepPlan: SweepOuter_stim Start=S_imag_start Stop=S_imag_stop Lin=num_pts_outer 
+
+ParamSweep:SweepInner SimInstanceName[1]=Simulation_1 StatusLevel=2 SweepVar="real_indexs11" SweepPlan="SweepInner_stim" 
+
+SweepPlan: SweepInner_stim Start=S_real_start Stop=S_real_stop Lin=num_pts_inner 
+
+
+real_indexs11=0
+imag_indexs11=0
+indexs11=real_indexs11+j*imag_indexs11
+s11_BB0=(Z_Load_Baseband-conj(Z0))/(Z_Load_Baseband+Z0)
+s11_center_Fund0=(Z_Load_Center_Fund-conj(Z0))/(Z_Load_Center_Fund+Z0)
+s11_center_2nd0=(Z_Load_Center_2nd-conj(Z0))/(Z_Load_Center_2nd+Z0)
+s11_center_3rd0=(Z_Load_Center_3rd-conj(Z0))/(Z_Load_Center_3rd+Z0)
+s11_4th0=(Z_Load_4th-conj(Z0))/(Z_Load_4th+Z0)
+s11_5th0=(Z_Load_5th-conj(Z0))/(Z_Load_5th+Z0)
+s11_BB=if (Specify_Load_Center_S) then S_Load_Baseband else s11_BB0 endif
+s11_center_Fund=if (Specify_Load_Center_S) then S_Load_Center_Fund else s11_center_Fund0 endif
+s11_center_2nd=if (Specify_Load_Center_S) then S_Load_Center_2nd else s11_center_2nd0 endif
+s11_center_3rd=if (Specify_Load_Center_S) then S_Load_Center_3rd else s11_center_3rd0 endif
+s11_4th=if (Specify_Load_Center_S) then S_Load_4th else s11_4th0 endif
+s11_5th=if (Specify_Load_Center_S) then S_Load_5th else s11_5th0 endif
+s11_center=if (Swept_Harmonic_Num ==2) then s11_center_2nd elseif (Swept_Harmonic_Num ==3) then s11_center_3rd else s11_center_Fund endif
+argument =max_radius^2-(imag(s11_center)-imag_indexs11)^2
+c_limit=sqrt(if ((argument) <0) then 0 else argument endif)
+max_radius = min(Max_Rho_Mag_Allowed - mag(s11_center), mag(S_Load_Radius))
+lines=max(int(sqrt(Num_Points)),1)
+pts_per_line=int(Num_Points/lines)
+
+LoadTuner=LoadArray[iload]
+LoadArray_Fund=list(s11_BB,indexs11,s11_center_2nd,s11_center_3rd,s11_4th,s11_5th)
+LoadArray_2nd=list(s11_BB,s11_center_Fund,indexs11,s11_center_3rd,s11_4th,s11_5th)
+LoadArray_3rd=list(s11_BB,s11_center_Fund,s11_center_2nd,indexs11,s11_4th,s11_5th)
+LoadArray=if (Swept_Harmonic_Num ==2) then LoadArray_2nd elseif (Swept_Harmonic_Num ==3) then LoadArray_3rd else LoadArray_Fund endif
+iload=int(min(abs(freq)/Fund_Freq +1.5,length(LoadArray)))
+
+Max_Rho_Mag_Allowed=0.99
+
+S_real_min_chkd=if (mag(S_real_min)>Max_Rho_Mag_Allowed) then sgn(S_real_min)*Max_Rho_Mag_Allowed else S_real_min endif
+S_real_max_chkd=if (mag(S_real_max)>Max_Rho_Mag_Allowed) then sgn(S_real_max)*Max_Rho_Mag_Allowed else S_real_max endif
+S_imag_min_chkd=if (mag(S_imag_min)>Max_Rho_Mag_Allowed) then sgn(S_imag_min)*Max_Rho_Mag_Allowed else S_imag_min endif
+S_imag_max_chkd=if (mag(S_imag_max)>Max_Rho_Mag_Allowed) then sgn(S_imag_max)*Max_Rho_Mag_Allowed else S_imag_max endif
+S_real_min_limited=if (sqrt(mag(S_real_min_chkd^2 + imag_indexs11^2))<=Max_Rho_Mag_Allowed) then S_real_min_chkd else sgn(S_real_min_chkd)*sqrt(Max_Rho_Mag_Allowed^2 -imag_indexs11^2) endif
+S_real_max_limited=if (sqrt(mag(S_real_max_chkd^2 + imag_indexs11^2))<=Max_Rho_Mag_Allowed) then S_real_max_chkd else sgn(S_real_max_chkd)*sqrt(Max_Rho_Mag_Allowed^2 -imag_indexs11^2) endif
+
+S_imag_start=if (!Sweep_Rectangular_Region) then imag(s11_center)-(max_radius-max_radius/(lines+1)) else S_imag_min_chkd endif
+S_imag_stop=if (!Sweep_Rectangular_Region) then imag(s11_center)+(max_radius-max_radius/(lines+1)) else S_imag_max_chkd endif
+num_pts_outer=if (!Sweep_Rectangular_Region) then lines else S_imag_num_pts endif
+S_real_start=if (!Sweep_Rectangular_Region) then real(s11_center)-c_limit else S_real_min_limited endif
+S_real_stop=if (!Sweep_Rectangular_Region) then real(s11_center)+c_limit else S_real_max_limited endif
+num_pts_inner=if (!Sweep_Rectangular_Region) then pts_per_line else S_real_num_pts endif
+end Load_Tuner_Circular_or_Rect_wHarm_Zs_1
+define HMT_QOR_T2G6003028_FS_001_MDLXQorvoGaN ( N__9  N__10  N__11 ) 
+parameters  VDSQ=28  self_heat_factor=0.1  Temperature=25 
+HMT_QOR_T2G6003028_FS_001_int_MDLXQorvoGaN:X1  N__10 N__9 N__11 Vdrain_int Vgate_int Vsrc_int N__4 self_heat_factor=self_heat_factor Temperature=Temperature 
+Short:I_drain_int  N__8 0 Mode=0 SaveCurrent=yes 
+R:R1  N__4 N__8 R=1 Ohm Noise=yes 
+end HMT_QOR_T2G6003028_FS_001_MDLXQorvoGaN
+define Load_Pull_Instrument1_r1 ( Source  Load  Bias1  Bias2 ) 
+parameters  V_Bias1=1  V_Bias2=5  RF_Freq=1 GHz  Pavs_dBm=0  Z0=50+j*0  Specify_Load_Center_S=yes  Sweep_Rectangular_Region=no  Swept_Harmonic_Num=1  Z_Load_Baseband=50+j*0  Z_Load_Center_Fund=50+j*0  Z_Load_Center_2nd=500+j*0  Z_Load_Center_3rd=500+j*0  Z_Load_4th=500+j*0  Z_Load_5th=500+j*0  S_Load_Baseband=0*exp(j*0*pi)  S_Load_Center_Fund=0*exp(j*0*pi)  S_Load_Center_2nd=1*exp(j*0*pi)  S_Load_Center_3rd=1*exp(j*0*pi)  S_Load_4th=1*exp(j*0*pi)  S_Load_5th=1*exp(j*0*pi)  S_Load_Radius=0.5  Num_Points=100  S_imag_min=-0.2  S_imag_max=0.2  S_imag_num_pts=10  S_real_min=-0.2  S_real_max=0.2  S_real_num_pts=10  Z_Source_Fund=10+j*0  Z_Source_2nd=1000  Z_Source_3rd=1000  Z_Source_4th=1000  Z_Source_5th=1000 
+aele Pdel_W=0.5*real(Vload[1]*conj(Iload.i[1]));Pdel_dBm=10*log(Pdel_W)+30;Pdc=real(Is_1.i[0]*Vs_1[0] +Is_2.i[0]*Vs_2[0]);P_In_Watts=0.5*real(V_In[1]*conj(I_In.i[1]));PAE=100*(Pdel_W-P_In_Watts)/Pdc;
+
+Pavs_dBm_O=Pavs_dBm
+Z0_O=Z0
+Z_s_fund_O=Z_Source_Fund
+
+iload = int(min(abs(freq)/RF_Freq+1.5,length(SrcArray)))
+;Source impedances=
+Z_s = SrcArray[isrc]
+SrcArray =list(Z0, Z_Source_Fund, Z_Source_2nd,Z_Source_3rd,Z_Source_4th,Z_Source_5th)
+isrc = min(iload,length(SrcArray))
+HB:HB1 MaxOrder=4 Freq[1]=RF_Freq Order[1]=5 StatusLevel=3 FundOversample=1 \
+Restart=no UseAllSS_Freqs=yes OutputBudgetIV=no UseOutFile=no \
+UseInFile=no OutputPlan="HB1_Output" 
+
+OutputPlan:HB1_Output \
+      Type="Output" \
+      UseNodeNestLevel=yes \
+      NodeNestLevel=2 \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2 \
+      SavedEquationName[1]="Pavs_dBm_O" \
+      SavedEquationName[2]="Z0_O" \
+      SavedEquationName[3]="Z_s_fund_O" \
+      UseDeviceCurrentNestLevel=no \
+      DeviceCurrentDeviceType="All" \
+      DeviceCurrentSymSyntax=yes \
+      UseCurrentNestLevel=yes \
+      CurrentNestLevel=999 \
+      UseDeviceVoltageNestLevel=no \
+      DeviceVoltageNestLevel=0 \
+      DeviceVoltageDeviceType="All"
+
+Tran:HB1_tran HB_Sol=1 SteadyState=1 StatusLevel=3 \
+Freq[1]=RF_Freq Order[1]=5 
+
+Component:tahb_HB1 Module="ATAHB" Type="ModelExtractor" \ 
+ Tran_Analysis="HB1_tran" HB_Analysis="HB1" 
+
+Load_Tuner_Circular_or_Rect_wHarm_Zs_1:X2  Vload 0 Z0=Z0 Fund_Freq=RF_Freq Z_Load_Baseband=Z_Load_Baseband Z_Load_Center_Fund=Z_Load_Center_Fund Z_Load_Center_2nd=Z_Load_Center_2nd Z_Load_Center_3rd=Z_Load_Center_3rd Z_Load_4th=Z_Load_4th Z_Load_5th=Z_Load_5th Sweep_Rectangular_Region=Sweep_Rectangular_Region Specify_Load_Center_S=Specify_Load_Center_S Swept_Harmonic_Num=Swept_Harmonic_Num S_Load_Baseband=S_Load_Baseband S_Load_Center_Fund=S_Load_Center_Fund S_Load_Center_2nd=S_Load_Center_2nd S_Load_Center_3rd=S_Load_Center_3rd S_Load_4th=S_Load_4th S_Load_5th=S_Load_5th S_Load_Radius=S_Load_Radius Num_Points=Num_Points S_imag_min=S_imag_min S_imag_max=S_imag_max S_imag_num_pts=S_imag_num_pts S_real_min=S_real_min S_real_max=S_real_max S_real_num_pts=S_real_num_pts Simulation_1="HB1" 
+Port:PORT1  N__5 0 Num=1 Z=Z_s P[1]=dbmtow(Pavs_dBm) Freq[1]=RF_Freq    Noise=yes Pac=dbmtow(0) 
+Short:Is_2  Vs_2 N__10 Mode=0 SaveCurrent=yes 
+Short:Is_1  Vs_1 N__11 Mode=0 SaveCurrent=yes 
+V_Source:SRC1  Vs_2 0 Type="V_DC" Vdc=V_Bias2 SaveCurrent=1 
+V_Source:SRC2  Vs_1 0 Type="V_DC" Vdc=V_Bias1 SaveCurrent=1 
+L:L2  N__11 Bias1 L=1 uH Noise=yes  
+L:L1  N__10 Bias2 L=1 uH Noise=yes  
+C:C1  V_In Source C=1.0 uF 
+C:C2  Load N__12 C=1.0 uF 
+Short:I_In  N__5 V_In Mode=0 SaveCurrent=yes 
+Short:Iload  N__12 Vload Mode=0 SaveCurrent=yes 
+end Load_Pull_Instrument1_r1
+HMT_QOR_T2G6003028_FS_001_MDLXQorvoGaN:X10  N__5 N__1 0 VDSQ=28 V self_heat_factor=0.1 Temperature=25 
+Load_Pull_Instrument1_r1:X1  N__1 N__5 N__1 N__5 V_Bias1=Vlow V_Bias2=Vhigh RF_Freq=RFfreq Pavs_dBm=Pavs Z0=Z0 Specify_Load_Center_S=yes Sweep_Rectangular_Region=no Swept_Harmonic_Num=1 Z_Load_Baseband=50+j*0 Z_Load_Center_Fund=50+j*0 Z_Load_Center_2nd=500+j*0 Z_Load_Center_3rd=500+j*0 Z_Load_4th=500+j*0 Z_Load_5th=500+j*0 S_Load_Baseband=0*exp(j*0*pi) S_Load_Center_Fund=s11_center S_Load_Center_2nd=GammaL2 S_Load_Center_3rd=GammaL3 S_Load_4th=0*exp(j*0*pi) S_Load_5th=0*exp(j*0*pi) S_Load_Radius=s11_rho Num_Points=pts S_imag_min=-0.2 S_imag_max=0.2 S_imag_num_pts=10 S_real_min=-0.2 S_real_max=0.2 S_real_num_pts=10 Z_Source_Fund=Z0*(1+GammaS)/(1-GammaS) Z_Source_2nd=Z0*(1+GammaS2)/(1-GammaS2) Z_Source_3rd=Z0*(1+GammaS3)/(1-GammaS3) Z_Source_4th=1000 Z_Source_5th=1000 
+
+Pavs=29
+RFfreq=6 GHz
+Vhigh=28
+Vlow=-3.02
+s11_rho=0.9
+s11_center=0
+pts=300
+Z0=50
+
+GammaS=polar(0.777,178)
+GammaS2=polar(0.576,127)
+GammaS3=0
+GammaL2=polar(0.553,133)
+GammaL3=0
+
+Options:Options1 Tnom=25 TopologyCheck=yes ForceS_Params=yes V_RelTol=3e-5 V_AbsTol=1e-5 V  \
+I_RelTol=3e-5 I_AbsTol=1e-5 A GiveAllWarnings=yes MaxWarnings=10 ForceM_Params=yes  \
+InitialGuessAnnotation=0 TopologyCheckMessages=no GPU=no doDeltaAC=no ReduceSPort=no  \
+ReduceSPortRatio=0.5 WarnSOA=yes MaxWarnSOA=5 Census=no MinNodalR=1e-2 Ohm LargeCapThreshold=1e-3 F 
+

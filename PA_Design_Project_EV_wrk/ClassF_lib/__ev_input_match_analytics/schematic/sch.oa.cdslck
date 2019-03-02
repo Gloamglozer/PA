@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      Eric
+HostName                       DESKTOP-7OQD7LN
+ProcessIdentifier              12420
+ProcessCreationTime_UTC        1551488014
+ProcessCreationTime_Readable   03/01/19 19:53:34 Eastern Standard Time
+AppIdentifier                  OA File System Design Manager
+OSType                         win32
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         G:\Documents\000_USF\2019_Spring\PowerAmplifiers\PA_Design_Project_EV_wrk\ClassF_lib\__ev_input_match_analytics\schematic\sch.oa.cdslck
+TimeEditLocked                 03/01/19 20:19:15 Eastern Standard Time

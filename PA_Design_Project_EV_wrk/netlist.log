@@ -1,0 +1,12 @@
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="ClassF_lib:__ev_input_match_analytics:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+define _ev_input_match_and_bias ( Input  Output  Bias ) 
+;parameters 
+Short:DC_Feed1  Bias N__5 Mode=-1 
+Short:DC_Block1  Input N__5 Mode=1 
+R:R_source_series  N__5 Output R=1 Ohm tune{ 0.5 Ohm to 50 Ohm by 0.1 Ohm } opt{ unconst } Noise=yes 
+R:R_source_shunt  N__5 N__0 R=22.1895 Ohm tune{ 19 Ohm to 1000 Ohm by 1 Ohm } opt{ 11.0882 Ohm to 33.2646 Ohm } Noise=yes 
+C:C_source_shunt  0 N__0 C=458.634 pF tune{ 1 pF to 150 pF by 10 pF } opt{ unconst } 
+end _ev_input_match_and_bias
+_ev_input_match_and_bias:I__0  N__2 N__0 N__1 
+Port:TermG1  N__2 0 Num=1 Z=50 Ohm Noise=yes 
