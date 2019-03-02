@@ -1,8 +1,7 @@
 <!DOCTYPE SaveWorkspaceState>
 <SaveWorkspaceState>
     <Windows>
-        <Schematic x1="-8" lib="ClassF_lib" y1="-8" width="1680" height="987" cell="stabilization" view="schematic"/>
-        <DDS name="stabilization_only_rs.dds"/>
+        <Schematic cell="_ev_input_match_and_bias" width="846" y1="30" height="500" lib="ClassF_lib" x1="30" view="schematic"/>
     </Windows>
     <MainWindowTab tab="1"/>
 </SaveWorkspaceState>

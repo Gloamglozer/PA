@@ -1,4 +1,4 @@
-﻿<ADSWorkspace Revision="49" Version="100">
+﻿<ADSWorkspace Revision="65" Version="100">
     <Workspace Name="">
         <Library Name="ads_standard_layers" />
         <Library Name="adstechlib" />
@@ -46,17 +46,27 @@
         <Dataset Name="classf_match.ds" />
         <Data_Display Name="classf.dds" />
         <Data_Display Name="dciv.dds" />
-        <Data_Display Name="power_sweep_classf.dds" />
         <Data_Display Name="fourier_analysis.dds" />
         <Library Name="MDLXQorvoGaN_tech" />
         <Library Name="MDLXQorvoGaN" />
-        <Cell Name="ClassF_lib:stabilization" />
-        <Data_Display Name="stabilization.dds" />
         <Dataset Name="dciv.ds" />
         <Dataset Name="stabilization.ds" />
         <Preferences Name="ClassF_lib_lay.prf" />
-        <Cell Name="ClassF_lib:bias" />
         <Dataset Name="bias.ds" />
-        <Cell Name="ClassF_lib:stabilization_only_rs" />
+        <Dataset Name="stabilization_only_rs.ds" />
+        <Cell Name="ClassF_lib:_ev_stabilization" />
+        <Data_Display Name="_ev_stabilization.dds" />
+        <Cell Name="ClassF_lib:_ev_stabilization_only_rs" />
+        <Data_Display Name="_ev_stabilization_only_rs.dds" />
+        <Cell Name="ClassF_lib:_ev_transistor" />
+        <Data_Display Name="Power_Sweep_ClassF.dds" />
+        <Dataset Name="_ev_bias.ds" />
+        <Dataset Name="_ev_classf_parasitics.ds" />
+        <Preferences Name="MDLXQorvoGaN_lay.prf" />
+        <Cell Name="ClassF_lib:_ev_input_match_and_bias" />
+        <Cell Name="ClassF_lib:_ev_output_match_and_bias" />
+        <Cell Name="ClassF_lib:__ev_class_f_analytics" />
+        <Cell Name="ClassF_lib:__ev_bias" />
+        <Data_Display Name="__ev_bias.dds" />
     </Workspace>
 </ADSWorkspace>

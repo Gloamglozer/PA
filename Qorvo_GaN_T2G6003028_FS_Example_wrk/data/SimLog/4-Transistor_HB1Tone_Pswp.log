@@ -1,0 +1,177 @@
+
+hpeesofsim (*) 450.shp Jan 21 2016, MINT version 4
+    (64-bit windows built: 01/21/16 15:34:19)
+Copyright 1995 - 2015 Keysight Technologies, 1989-2016.
+
+Done with exporting 2 VerilogA device(s).
+
+HB HB2[1] <Qorvo_GaN_T2G6003028_FS_Example_lib:4-Transistor_HB1Tone_Pswp:schematic>   RFpower=(12->30)
+Pt DC convergence is used.
+    Number of tones:   1.
+    Number of frequencies:   8.
+    Number of time samples:  16.
+    Number of HB equations (problem size): 1680.
+    Auto mode: on.
+    Convergence mode: Auto.
+    Linear solver: direct.
+    RFpower=12             0.00% 1/19
+------------------------------------------------------------------------------
+Newton solver:					
+Iter	KCL residual	Damp %	Sol update
+------------------------------------------------------------------------------
+0.0*	1.45999 A   	100.0             
+1.0 	74.6236 mA  	100.0             
+1.1 	1.73663 mA  	100.0             
+1.2 	29.4822 uA  	100.0	1.83957 uV   
+    RFpower=13             5.56% 2/19
+0.0 	40.6584 mA  	100.0             
+0.1 	6.05434 mA  	100.0             
+0.2 	137.905 uA  	100.0             
+
+    RFpower=14            11.11% 3/19
+0.0 	53.7126 mA  	100.0             
+0.1 	7.89778 mA  	100.0             
+0.2 	207.696 uA  	100.0             
+
+    RFpower=15            16.67% 4/19
+0.0 	70.6712 mA  	100.0             
+0.1 	10.1926 mA  	100.0             
+0.2 	314.095 uA  	100.0             
+0.3 	9.40931 uA  	100.0             
+
+    RFpower=16            22.22% 5/19
+0.0 	92.1819 mA  	100.0             
+0.1 	13.205 mA   	100.0             
+0.2 	475.151 uA  	100.0             
+0.3 	18.2977 uA  	100.0             
+
+    RFpower=17            27.78% 6/19
+0.0 	119.014 mA  	100.0             
+0.1 	17.2032 mA  	100.0             
+0.2 	702.939 uA  	100.0             
+0.3 	35.7285 uA  	100.0             
+
+    RFpower=18            33.33% 7/19
+0.0 	151.73 mA   	100.0             
+0.1 	22.6388 mA  	100.0             
+0.2 	1.13772 mA  	100.0             
+0.3 	64.6305 uA  	100.0             
+
+    RFpower=19            38.89% 8/19
+0.0 	197.028 mA  	100.0             
+0.1 	28.0603 mA  	100.0             
+0.2 	1.88297 mA  	100.0             
+0.3 	84.64 uA    	100.0             
+
+    RFpower=20            44.44% 9/19
+0.0 	249.712 mA  	100.0             
+0.1 	34.2469 mA  	100.0             
+0.2 	2.58279 mA  	100.0             
+0.3 	156.731 uA  	100.0             
+
+    RFpower=21            50.00% 10/19
+0.0 	313.352 mA  	100.0             
+0.1 	41.4565 mA  	100.0             
+0.2 	3.37854 mA  	100.0             
+0.3 	260.257 uA  	100.0             
+
+    RFpower=22            55.56% 11/19
+0.0 	381.966 mA  	100.0             
+0.1 	45.9221 mA  	100.0             
+0.2 	4.93235 mA  	100.0             
+0.3 	285.697 uA  	100.0             
+
+    RFpower=23            61.11% 12/19
+0.0 	456.022 mA  	100.0             
+0.1 	48.5873 mA  	100.0             
+0.2 	6.11498 mA  	100.0             
+0.3 	349.61 uA   	100.0             
+
+    RFpower=24            66.67% 13/19
+0.0 	534.963 mA  	100.0             
+0.1 	53.4859 mA  	100.0             
+0.2 	7.98754 mA  	100.0             
+0.3 	631.482 uA  	100.0             
+
+    RFpower=25            72.22% 14/19
+0.0 	580.956 mA  	100.0             
+0.1 	106.336 mA  	100.0             
+0.2 	20.0315 mA  	100.0             
+0.3 	2.56446 mA  	100.0             
+0.4 	365.538 uA  	100.0             
+
+    RFpower=26            77.78% 15/19
+0.0 	600.804 mA  	100.0             
+0.1 	292.567 mA  	100.0             
+0.2 	101.542 mA  	100.0             
+0.3 	22.508 mA   	100.0             
+0.4 	4.92689 mA  	100.0             
+0.5 	919.772 uA  	100.0             
+0.6 	230.467 uA  	100.0             
+
+    RFpower=27            83.33% 16/19
+0.0 	643.41 mA   	100.0             
+0.1 	244.763 mA  	100.0             
+0.2 	87.1339 mA  	100.0             
+0.3 	31.9079 mA  	100.0             
+0.4 	9.60684 mA  	100.0             
+0.5 	2.26971 mA  	100.0             
+0.6 	444.64 uA   	100.0             
+
+    RFpower=28            88.89% 17/19
+0.0 	773.646 mA  	100.0             
+0.1 	379.478 mA  	100.0             
+0.2 	131.449 mA  	100.0             
+0.3 	56.0283 mA  	100.0             
+0.4 	21.1089 mA  	100.0             
+0.5 	8.24078 mA  	100.0             
+0.6 	3.16907 mA  	100.0             
+0.7 	1.23329 mA  	100.0             
+0.8 	480.317 uA  	100.0             
+0.9 	187.439 uA  	100.0             
+
+    RFpower=29            94.44% 18/19
+0.0 	892.289 mA  	100.0             
+0.1 	152.575 mA  	100.0             
+0.2 	45.0292 mA  	100.0             
+0.3 	14.3834 mA  	100.0             
+0.4 	5.58118 mA  	100.0             
+0.5 	1.99652 mA  	100.0             
+0.6 	671.396 uA  	100.0             
+0.7 	216.684 uA  	100.0             
+
+    RFpower=30           100.00% 19/19
+0.0 	911.96 mA   	100.0             
+0.1 	215.86 mA   	100.0             
+0.2 	37.7678 mA  	100.0             
+0.3 	10.8545 mA  	100.0             
+0.4 	2.92662 mA  	100.0             
+0.5 	767.82 uA   	100.0             
+0.6 	191.279 uA  	100.0             
+
+An HB truncation error may be present.
+o The HB truncation error is due to using a finite order 
+  (number of harmonics) in the representation of the
+  circuit signals.
+
+Waveform                Trunc error             Tolerance
+---------------------------------------------------------
+X10.X1.N__13            1.568e-02       >       4.624e-04
+X10.X1.X26.Vdi_Sense_i  1.568e-02       >       4.624e-04
+X10.X1.X26.X3.xt1       9.311e-03       >       4.222e-05
+X10.X1.X26.X3._ub_xt1_xt2_i 9.279e-03       >       4.221e-05
+X10.X1.X26.Ids_Sense_i  9.279e-03       >       4.221e-05
+
+o Number of waveforms violating the HB truncation error check:
+        17 out of 20 waveforms.
+o Estimated max HB truncation error: 1.568e-02 @ waveform X10.X1.N__13 .
+o The maximal HB truncation error estimate is greater than the 
+  achieved tolerance of 4.624e-04 for this waveform.
+o A time-domain plot of the X10.X1.R1.X4.TL1.i1 waveform may show the error as 
+  Gibbs ripples.
+o To reduce the error, increase the order (number of harmonics) 
+  and re-simulate.
+
+Resource usage:
+  Total stopwatch time     =     3.25 seconds.
+

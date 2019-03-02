@@ -1,0 +1,221 @@
+
+hpeesofsim (*) 450.shp Jan 21 2016, MINT version 4
+    (64-bit windows built: 01/21/16 15:34:19)
+Copyright 1995 - 2015 Keysight Technologies, 1989-2016.
+
+Done with exporting 1 VerilogA device(s).
+Warning detected by hpeesofsim in topology check during circuit set up.
+    Number of nodes with only one device attached (topology corrected): 1
+
+
+CT Sweep1[1] <ClassF_lib:_ev_bias:schematic>   VG.Vdc=(-7 V->3 V)
+
+DC Sweep1[1].DC1[1/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-7 V  VD.Vdc=(0 V->64 V)
+.Pt DC convergence is used.
+
+.
+................................................................
+
+DC Sweep1[1].DC1[2/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-6.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[3/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-6.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[4/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-6.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[5/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-6 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[6/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-5.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[7/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-5.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[8/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-5.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[9/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[10/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-4.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[11/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-4.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[12/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-4.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[13/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-4 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[14/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-3.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[15/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-3.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[16/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-3.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[17/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-3 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[18/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-2.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[19/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-2.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[20/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-2.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[21/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-2 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[22/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-1.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[23/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-1.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[24/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-1.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[25/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-1 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[26/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-750 mV  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[27/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-500 mV  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[28/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=-250 mV  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[29/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=0 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[30/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=250 mV  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[31/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=500 mV  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[32/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=750 mV  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[33/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=1 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[34/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=1.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[35/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=1.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[36/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=1.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[37/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=2 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[38/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=2.25 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[39/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=2.5 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[40/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=2.75 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+DC Sweep1[1].DC1[41/41] <ClassF_lib:_ev_bias:schematic>  VG.Vdc=3 V  VD.Vdc=(0 V->64 V)
+.
+.
+................................................................
+
+Resource usage:
+  Total stopwatch time     =     1.75 seconds.
+
